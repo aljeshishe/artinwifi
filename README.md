@@ -17,7 +17,9 @@ This is how python package should look like!
 ## Installation
 
 ```bash
-pip install artinwifi
+git clone https://github.com/aljeshishe/artinwifi
+poetry install
+poetry shell
 ```
 
 ## Run
