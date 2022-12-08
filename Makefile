@@ -1,5 +1,9 @@
 SHELL:=/usr/bin/env bash
 
+.PHONY: run
+run:
+	 scrapy runspider artinwifi_spider/spider.py
+
 .PHONY: lint
 lint:
 	poetry run mypy artinwifi_spider tests/**/*.py
