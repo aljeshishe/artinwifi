@@ -1,4 +1,4 @@
-from artinwifi_spider.number import Number
+from artinwifi.number import Number
 
 
 class Passwords:

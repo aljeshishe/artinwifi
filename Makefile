@@ -2,11 +2,11 @@ SHELL:=/usr/bin/env bash
 
 .PHONY: run
 run:
-	 scrapy runspider artinwifi_spider/spider.py
+	 scrapy runspider artinwifi/spider.py
 
 .PHONY: lint
 lint:
-	poetry run mypy artinwifi_spider tests/**/*.py
+	poetry run mypy artinwifi tests/**/*.py
 	poetry run flake8 .
 	poetry run doc8 -q docs
 

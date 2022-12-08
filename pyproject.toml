@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "artinwifi-spider"
+name = "artinwifi"
 description = "This is how python package should look like!"
 version = "0.1.0"
 license = "MIT"
@@ -8,7 +8,7 @@ authors = []
 
 readme = "README.md"
 
-repository = "https://github.com/aljeshishe/artinwifi-spider"
+repository = "https://github.com/aljeshishe/artinwifi"
 
 keywords = []
 
@@ -59,4 +59,4 @@ build-backend = "poetry.core.masonry.api"
 style = "https://raw.githubusercontent.com/wemake-services/wemake-python-styleguide/master/styles/nitpick-style-wemake.toml"
 
 [tool.poetry.scripts]
-artwifi_spider = 'artinwifi_spider.main:main'
+artwifi_spider = 'artinwifi.main:main'

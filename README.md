@@ -1,8 +1,8 @@
-# artinwifi-spider
+# artinwifi
 
-[![Build Status](https://github.com/aljeshishe/artinwifi-spider/workflows/test/badge.svg?branch=master&event=push)](https://github.com/aljeshishe/artinwifi-spider/actions?query=workflow%3Atest)
-[![codecov](https://codecov.io/gh/aljeshishe/artinwifi-spider/branch/master/graph/badge.svg)](https://codecov.io/gh/aljeshishe/artinwifi-spider)
-[![Python Version](https://img.shields.io/pypi/pyversions/artinwifi-spider.svg)](https://pypi.org/project/artinwifi-spider/)
+[![Build Status](https://github.com/aljeshishe/artinwifi/workflows/test/badge.svg?branch=master&event=push)](https://github.com/aljeshishe/artinwifi/actions?query=workflow%3Atest)
+[![codecov](https://codecov.io/gh/aljeshishe/artinwifi/branch/master/graph/badge.svg)](https://codecov.io/gh/aljeshishe/artinwifi)
+[![Python Version](https://img.shields.io/pypi/pyversions/artinwifi.svg)](https://pypi.org/project/artinwifi/)
 [![wemake-python-styleguide](https://img.shields.io/badge/style-wemake-000000.svg)](https://github.com/wemake-services/wemake-python-styleguide)
 
 This is how python package should look like!
@@ -17,24 +17,17 @@ This is how python package should look like!
 ## Installation
 
 ```bash
-pip install artinwifi-spider
+pip install artinwifi
 ```
 
-
-## Example
-
-Showcase how your project can be used:
-
-```python
-from artinwifi_spider.example import some_function
-
-print(some_function(3, 4))
-# => 7
+## Run
+```bash
+make run
 ```
 
 ## License
 
-[MIT](https://github.com/aljeshishe/artinwifi-spider/blob/master/LICENSE)
+[MIT](https://github.com/aljeshishe/artinwifi/blob/master/LICENSE)
 
 
 ## Credits

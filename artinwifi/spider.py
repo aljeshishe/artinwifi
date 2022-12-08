@@ -6,7 +6,7 @@ from scrapy.spidermiddlewares.httperror import HttpError
 from scrapy.utils.request import request_httprepr
 from scrapy.utils.response import response_httprepr
 
-from artinwifi_spider.passwords import Passwords
+from artinwifi.passwords import Passwords
 
 log = logging.getLogger(__name__)
 
@@ -19,7 +19,7 @@ def _random_mac_address() -> str:
 
 
 class Spider(scrapy.Spider):
-    name = "artinwifi_spider"
+    name = "artinwifi"
 
     custom_settings = {
         "LOG_LEVEL": "INFO",
@@ -33,7 +33,7 @@ class Spider(scrapy.Spider):
         "DOWNLOADER_MIDDLEWARES": {
             'scrapeops_scrapy.middleware.retry.RetryMiddleware': 550,
             'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
-            "artinwifi_spider.utils.LoggingDownloaderMiddleware": 0,
+            "artinwifi.utils.LoggingDownloaderMiddleware": 0,
         },
         # dont use JOBDIR because if we do, scheduler will store there requests. Is is error prone
         "STATE_JOBDIR": "resume",
@@ -43,7 +43,7 @@ class Spider(scrapy.Spider):
         "REQUEST_FINGERPRINTER_IMPLEMENTATION": "2.7",
         "EXTENSIONS": {
             "scrapy.extensions.spiderstate.SpiderState": None,
-            "artinwifi_spider.json_spider_state.JsonSpiderState": 0,
+            "artinwifi.json_spider_state.JsonSpiderState": 0,
             'scrapeops_scrapy.extension.ScrapeOpsMonitor': 500,
         },
         "SCRAPEOPS_API_KEY": 'e837e4ea-44bf-4952-9327-cdd0d670020b',

@@ -1,6 +1,6 @@
 import pytest
 
-from artinwifi_spider.example import some_function
+from artinwifi.example import some_function
 
 
 @pytest.mark.parametrize(('first', 'second', 'expected'), [

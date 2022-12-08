@@ -6,8 +6,8 @@ from typing import Any
 import click
 from scrapy.crawler import CrawlerProcess
 
-from artinwifi_spider import logging_config
-from artinwifi_spider.spider import Spider
+from artinwifi import logging_config
+from artinwifi.spider import Spider
 import munch
 
 
